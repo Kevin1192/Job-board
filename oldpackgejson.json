@@ -21,5 +21,20 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": []
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001"
+    }
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "resolutions": {
+      "ajv": "6.8.1"
+    },
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
