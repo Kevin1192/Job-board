@@ -1,12 +1,35 @@
-.job {
-  width: 80%;
-  margin: 10px 0;
-  display: 'flex';
-  flex-direction: 'row';
-  justify-content: space-around;
-  padding: 10px 0;
+body {
+  margin: 20px 40px;
 }
 
-.jobcomp {
-  margin-left: 200px; 
+a {
+  text-decoration: none;
+}
+.job {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: 'row';
+  justify-content: space-between;
+  padding: 10px 10px;
+    margin: 20px 0;
+  align-items: center;
+}
+
+.job:hover {
+  cursor: pointer;
+  color: #666666;
+}
+
+.detail-logo{ 
+  height: 50px;
+  float: right;
+}
+
+.job-company {
+  padding: 0 30px;
+}
+
+.job-dialog {
+  padding: 30px 50px;
 }

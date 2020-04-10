@@ -2,12 +2,7 @@ import React from "react";
 import "./App.css";
 import Jobs from "./jobs";
 
-const JOB_API = "http://localhost:3001/jobs";
-
-const mockjobs = [
-  { title: "SWE 1", company: "Google" },
-  { title: "SWE 1", company: "Facebook" }
-];
+const JOB_API = "/api/jobs";
 
 async function fetchJobs(updateCb) {
   const res = await fetch(JOB_API);

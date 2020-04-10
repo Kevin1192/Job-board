@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-html-parser": "^2.0.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -20,12 +21,20 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
+    "resolutions": {
+    "ajv": "6.8.1"
+  },
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
