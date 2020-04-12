@@ -3,6 +3,7 @@ Pulls job posts from major job boards.
 Demo Link: https://kevinzhoujobboard.pw
 
 
+With tutorials by Code Drip on Youtube https://www.youtube.com/watch?v=BPJSmlTMsQ4
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
