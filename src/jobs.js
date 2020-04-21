@@ -12,15 +12,15 @@ import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 400,
-    flexGrow: 1
-  }
+    width: '400px',
+    flexGrow: 1,
+  },
 });
 
 export default function Jobs({ jobs }) {
   // dialog
   const [open, setOpen] = React.useState(false);
-    const [selectedJob, selectJob] = React.useState({});
+  const [selectedJob, selectJob] = React.useState({});
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -37,63 +37,74 @@ export default function Jobs({ jobs }) {
   const jobsOnPage = jobs.slice(activeStep * 50, activeStep * 50 + 51);
 
   const handleNext = () => {
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   return (
-    <div>
-    <JobModel open={open} job={selectedJob} handleClose={handleClose} />
-      <Typography variant="h4" component="h1">
-        Entry Level Software job-board
-      </Typography>
-      <Typography variant="h5" component="h2">
-        Found {jobs.length} jobs
-      </Typography>
-      {jobsOnPage.map((job, i) => (
-        <Job key={i} job={job} onClick={() => {
-            selectJob(job);
-            handleClickOpen();
-            }} />
-      ))}
-      <div>
-        Page {activeStep + 1} of {numPages}
+    <div className="page">
+      <JobModel open={open} job={selectedJob} handleClose={handleClose} />
+      <div className="header2">
+        <Typography variant="h4" component="h1" className="header1">
+          Software Engineer Job Board
+        </Typography>
+        <Typography variant="h5" component="h2">
+          Found {jobs.length} jobs
+        </Typography>
       </div>
-      <MobileStepper
-        variant="progress"
-        steps={numPages}
-        position="static"
-        activeStep={activeStep}
-        className={classes.root}
-        nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === numPages - 1}
-          >
-            Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
-      />
-
+      <div class="jobs">
+        {jobsOnPage.map((job, i) => (
+          <Job
+            key={i}
+            job={job}
+            onClick={() => {
+              selectJob(job);
+              handleClickOpen();
+            }}
+          />
+        ))}
+        <div>
+          Page {activeStep + 1} of {numPages}
+        </div>
+        <MobileStepper
+          variant="progress"
+          steps={numPages}
+          position="static"
+          activeStep={activeStep}
+          className={classes.root}
+          nextButton={
+            <Button
+              size="small"
+              onClick={handleNext}
+              disabled={activeStep === numPages - 1}
+            >
+              Next
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
+            </Button>
+          }
+          backButton={
+            <Button
+              size="small"
+              onClick={handleBack}
+              disabled={activeStep === 0}
+            >
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
+              Back
+            </Button>
+          }
+        />
+      </div>
     </div>
   );
 }
