@@ -1,5 +1,6 @@
 import React from "react";
-import Jobs from "./jobs";
+import Jobs from "./components/jobs";
+import AppBar from './components/navbar';
 
 const JOB_API = "/api/jobs";
 async function fetchJobs(updateCb) {
