@@ -57,7 +57,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form}>
+        <form className={classes.form} action='/signup' method='POST'>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField

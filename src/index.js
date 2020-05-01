@@ -15,8 +15,8 @@ ReactDOM.render(
     <Router>
       <NavBar />
       <Route exact path="/" component={App} />
-      <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
+      <Route exact path="/signin" component={SignIn} />
+      <Route exact path="/signup" component={SignUp} />
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
