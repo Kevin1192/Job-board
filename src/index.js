@@ -5,12 +5,21 @@ import "./App.css";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import NavBar from './components/navbar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import SignIn from './components/signIn';
+import SignUp from './components/signUp';
+
+
 ReactDOM.render(
   <React.StrictMode>
-  <NavBar />
-    <App />
+    <Router>
+      <NavBar />
+      <Route exact path="/" component={App} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
+    </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
