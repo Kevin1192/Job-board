@@ -37,9 +37,6 @@ app.use((request, response, next) => {
 });
 
 
-// Register Route
-
-//Log out route
 
 
 app.listen(port, ()=>{

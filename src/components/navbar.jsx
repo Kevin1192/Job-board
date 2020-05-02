@@ -4,8 +4,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "@material-ui/core";
 
 import { LoginContext } from '../shared/context/login-context'
@@ -32,19 +30,6 @@ export default function NavBar() {
   
   const auth = useContext(LoginContext);
 
-  // Access current user information
-
-  // User menu handle events
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -60,14 +45,11 @@ export default function NavBar() {
               <Link underline="none" href="/signin">
                 <Button style={{ color: "white" }}>Login</Button>
               </Link>
-              <Link underline="none" href="/signup">
-                <Button style={{ color: "white" }}>SignUp</Button>
-              </Link>
             </div>
           ) : (
             <div style={{ display: "flex" }}>
               <Link underline="none" href="/logout">
-                <Button style={{ color: "white" }}>Logout</Button>
+                <Button onClick={auth.logout} style={{ color: "white" }}>Logout</Button>
               </Link>
             </div>
           )}

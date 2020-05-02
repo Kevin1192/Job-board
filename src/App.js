@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Jobs from "./components/jobs";
 import {
   BrowserRouter as Router,
@@ -12,7 +12,6 @@ import "./App.css";
 
 import NavBar from "./components/navbar";
 import SignIn from "./components/signIn";
-import SignUp from "./components/signUp";
 
 import { LoginContext } from "./shared/context/login-context";
 import { useAuth } from "./shared/hooks/auth-hook";
@@ -42,19 +41,24 @@ function App() {
       <Route exact path="/signin">
         <SignIn />
       </Route>
-      <Route exact path="/signup">
-        <SignUp />
-      </Route>
       <Redirect to="/" />
     </Switch>
   );
   return (
+    <LoginContext.Provider value ={{
+      isLoggedIn: !!token,
+      token: token,
+      userId: userId,
+      login: login,
+      logout: logout
+    }} >
     <div className="App">
       <Router>
         <NavBar />
         {routes}
       </Router>
     </div>
+    </LoginContext.Provider>
   );
 }
 
