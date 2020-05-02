@@ -5,18 +5,6 @@ const jwt = require('jsonwebtoken')
 const HTTPError = require('../models/http-error');
 const User = require('../models/userSchema')
 
-const getUsers = async (request, response, next) =>{
-    let users
-    try {
-        users = await User.find({}, "-password");
-    } catch(err){
-        const error = new HTTPError('Fetching users failed! Please try again', 500)
-        return next(error)
-    }
-
-    response.json({users: users.map(user => user.toObject({ getters: true }))})
-}
-
 const signup = async (request, response, next) => {
     const errors = validationResult(request)
     if(!errors.isEmpty()){
@@ -118,6 +106,5 @@ const login = async (request, response, next) => {
     response.json({ name: existingUser.name, userId: existingUser.id, email: existingUser.email, token: token})
 }
 
-exports.getUsers = getUsers;
 exports.signup = signup;
 exports.login = login;

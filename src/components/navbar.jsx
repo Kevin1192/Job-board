@@ -76,12 +76,24 @@ export default function NavBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+                <MenuItem onClick={handleClose}>
+                  <Link
+                    underline="none"
+                    href="/subscribe"
+                    style={{ color: "black" }}
+                  >
+                    Subscribe
+                  </Link>
+                </MenuItem>
                 <MenuItem onClick={handleClose}>Favorites</MenuItem>
                 <MenuItem onClick={handleClose}>
-                  <Link underline="none" href="/logout">
-                    <Button onClick={auth.logout} >
-                      Logout
-                    </Button>
+                  <Link
+                    underline="none"
+                    href="/logout"
+                    onClick={auth.logout}
+                    style={{ color: "black" }}
+                  >
+                    Logout
                   </Link>
                 </MenuItem>
               </Menu>
