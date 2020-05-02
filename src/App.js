@@ -1,12 +1,6 @@
 import React from "react";
 import Jobs from "./components/jobs";
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 

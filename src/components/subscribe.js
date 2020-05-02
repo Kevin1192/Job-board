@@ -65,7 +65,7 @@ export default function Subscribe() {
     event.preventDefault();
 
     try {
-      const fetchData = await fetch(
+      await fetch(
         `${
           process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/api"
         }/users/${auth.userId}/subscribe`,
