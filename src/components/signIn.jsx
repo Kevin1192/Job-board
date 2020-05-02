@@ -106,7 +106,7 @@ const handlePasswordChange = (evt) => {
         });
         console.log('fetched', fetchData)
         const data = await fetchData.json()
-        auth.login(data.userId, data.token);
+        auth.login(data.name, data.userId, data.token);
          (data.userId && setRedirect(true))
       } catch (error) {console.log(error)}
     } else {
@@ -130,7 +130,7 @@ const handlePasswordChange = (evt) => {
         
         const data = await fetchData.json();
         console.log("fetch signup", data);
-        auth.login(data.userId, data.token);
+        auth.login(data.name, data.userId, data.token);
         data.userId && setRedirect(true);
       } catch (err) {console.log(err)}
     }

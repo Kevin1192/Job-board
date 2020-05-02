@@ -29,7 +29,7 @@ function App() {
     fetchJobs(updateJobs);
   }, []);
 
-  const { token, login, logout, userId } = useAuth();
+  const { name, token, login, logout, userId } = useAuth();
 
   let routes;
 
@@ -46,6 +46,7 @@ function App() {
   );
   return (
     <LoginContext.Provider value ={{
+      name: name,
       isLoggedIn: !!token,
       token: token,
       userId: userId,

@@ -5,6 +5,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "@material-ui/core";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import { LoginContext } from '../shared/context/login-context'
 
@@ -26,6 +28,18 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function NavBar() {
+  // Menu item
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  //
+
   const classes = useStyles();
   
   const auth = useContext(LoginContext);
@@ -48,9 +62,29 @@ export default function NavBar() {
             </div>
           ) : (
             <div style={{ display: "flex" }}>
-              <Link underline="none" href="/logout">
-                <Button onClick={auth.logout} style={{ color: "white" }}>Logout</Button>
-              </Link>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                {auth.name}
+              </Button>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Favorites</MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Link underline="none" href="/logout">
+                    <Button onClick={auth.logout} >
+                      Logout
+                    </Button>
+                  </Link>
+                </MenuItem>
+              </Menu>
             </div>
           )}
         </Toolbar>

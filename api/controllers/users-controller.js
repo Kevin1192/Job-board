@@ -70,7 +70,7 @@ const signup = async (request, response, next) => {
         return next(error)
     }
 
-    response.status(201).json({userId: createdUser.id, email: createdUser.email, token: token})
+    response.status(201).json({name: name, userId: createdUser.id, email: createdUser.email, token: token})
 }
 
 const login = async (request, response, next) => {
@@ -115,7 +115,7 @@ const login = async (request, response, next) => {
         return next(error);
     }
 
-    response.json({ userId: existingUser.id, email: existingUser.email, token: token})
+    response.json({ name: existingUser.name, userId: existingUser.id, email: existingUser.email, token: token})
 }
 
 exports.getUsers = getUsers;

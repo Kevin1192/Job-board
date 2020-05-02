@@ -6,13 +6,16 @@ export const useAuth = () => {
 const [token, setToken] = useState(false)
   const [tokenExpirationDate, setTokenExpirationDate] = useState()
   const [userId, setUserId] = useState(false)
+  const [name, setName] = useState('')
 
-  const login = useCallback((uid, token, expirationDate) => {
+  const login = useCallback((name, uid, token, expirationDate) => {
+    setName(name)
     setToken(token)
     setUserId(uid)
     const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000*60*60)
     setTokenExpirationDate(tokenExpirationDate)
     localStorage.setItem('userData', JSON.stringify({
+      name: name,
       userId: uid, 
       token: token, 
       expiration: tokenExpirationDate.toISOString()
@@ -20,6 +23,7 @@ const [token, setToken] = useState(false)
   }, [])
 
   const logout = useCallback(() => {
+    setName(null)
     setToken(null)
     setTokenExpirationDate(null)
     setUserId(null)
@@ -46,5 +50,5 @@ const [token, setToken] = useState(false)
     }
   }, [login])
 
-  return { token, login, logout, userId }
+  return { name, token, login, logout, userId }
 }
