@@ -37,26 +37,7 @@ app.use((request, response, next) => {
 });
 
 
-// Register Routes
-app.post('/signup', (req, res)=>{
-    User.register(
-      new User({ username: req.body.username }),
-      req.body.password,
-      (err, user) => {
-        if (err) {
-          console.log(err);
-          req.flash("error", err.message);
-          return res.redirect("/signup");
-        }
-        passport.authenticate("local")(req, res, () => {
-            currentUser = user
-          res.redirect("/");
-        });
-      }
-    );
-})
-
-
+// Register Route
 
 //Log out route
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "@material-ui/core";
+
+import { LoginContext } from '../shared/context/login-context'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,21 +25,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const currentUser = "/current";
-async function fetchCurrentUser(updateCb) {
-  const res = await fetch(currentUser);
-  const json = await res.json();
-  updateCb(json);
-}
+
 
 export default function NavBar() {
   const classes = useStyles();
   
+  const auth = useContext(LoginContext);
+
   // Access current user information
-  const [currentUser, updateUser] = React.useState({});
-  React.useEffect(() => {
-    fetchCurrentUser(updateUser);
-  }, []);
 
   // User menu handle events
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -60,7 +55,7 @@ export default function NavBar() {
             </Link>
           </Typography>
 
-          {Object.keys(currentUser).length === 0 ? (
+          {!auth.isLoggedIn ? (
             <div>
               <Link underline="none" href="/signin">
                 <Button style={{ color: "white" }}>Login</Button>
@@ -70,26 +65,10 @@ export default function NavBar() {
               </Link>
             </div>
           ) : (
-            <div style={{display: 'flex'}}>
-              <Typography variant="h6" style={{marginRight: '10px'}}>Hi, </Typography>
-              <Button
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={handleClick}
-              >
-                {currentUser.username}
-              </Button>
-              <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <Link href='/logout'><MenuItem onClick={handleClose}>Logout</MenuItem></Link>
-              </Menu>
+            <div style={{ display: "flex" }}>
+              <Link underline="none" href="/logout">
+                <Button style={{ color: "white" }}>Logout</Button>
+              </Link>
             </div>
           )}
         </Toolbar>
