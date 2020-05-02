@@ -33,6 +33,7 @@ async function fetchGithub() {
         jobTitle.includes('architect')) {isJunior = false;} 
         else { return true;}
   })
+  
 
   // set values in redis
   console.log('jr jobs', jrJobs.length);

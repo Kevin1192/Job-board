@@ -44,10 +44,6 @@ router.post('/:userId/subscribe', (req, res) => {
   res.json('');
 })
 
-router.get('/hi', (req, res)=>{
-    res.send('Hie')
-})
-
 const redis = require("redis");
 const client = redis.createClient();
 
