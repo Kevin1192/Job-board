@@ -23,6 +23,9 @@ async function fetchGithub() {
     onPage++;
   }
 
+  
+
+
   // filter out unmatched positions
   const jrJobs = allJobs.filter(job => {
       const jobTitle = job.title.toLowerCase();
@@ -33,6 +36,7 @@ async function fetchGithub() {
         jobTitle.includes('architect')) {isJunior = false;} 
         else { return true;}
   })
+
   
 
   // set values in redis

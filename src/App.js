@@ -11,6 +11,8 @@ import Subscribe from "./components/subscribe";
 import { LoginContext } from "./shared/context/login-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 
+
+// fetch jobs from backend
 const JOB_API = `${
   process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/api"
 }/users/api/jobs`;
@@ -26,6 +28,8 @@ async function fetchJobs(updateCb) {
 }
 
 function App() {
+
+  // update jobs
   const [jobList, updateJobs] = React.useState([]);
   React.useEffect(() => {
     fetchJobs(updateJobs);

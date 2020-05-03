@@ -1,3 +1,4 @@
+// run updateJobs every day
 var CronJob = require("cron").CronJob;
 
 const updateJobs = require("./tasks/updateJobs");

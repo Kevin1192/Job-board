@@ -85,7 +85,7 @@ export default function NavBar() {
                     Subscribe
                   </Link>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>Favorites</MenuItem>
+                {/* <MenuItem onClick={handleClose}>Favorites</MenuItem> */}
                 <MenuItem onClick={handleClose}>
                   <Link
                     underline="none"

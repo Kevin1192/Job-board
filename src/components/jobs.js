@@ -10,6 +10,8 @@ import Button from "@material-ui/core/Button";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 
+
+// format the job postings
 const useStyles = makeStyles({
   root: {
     width: '400px',
