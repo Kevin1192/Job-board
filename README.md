@@ -4,6 +4,14 @@ Demo Link: https://www.youtube.com/watch?v=1mnr9eP5Dzs
 
 
 
+## Download and test Instruction
+
+If you would like to download and run on your local machine, here are a few things to keep in mind:
+
+Make sure you have mongoDB and Redis installed in your machine. 
+Download link:
+[MongoDB](https://www.mongodb.com/)
+Redis(https://redis.io/)
 
 
 
