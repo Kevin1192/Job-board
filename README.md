@@ -1,9 +1,24 @@
 Pulls job posts from major job boards. 
 
-Demo Link: https://kevinzhoujobboard.pw
+Demo Link: https://www.youtube.com/watch?v=1mnr9eP5Dzs
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## React Instruction
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
