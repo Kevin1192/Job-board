@@ -32,6 +32,8 @@ Lastly, run `npm start` in the root foler.
 
 After you have their account_sid and token, the easiest way is to create an `.env` file in your root folder and store
 
+`TWILIO_ACCOUNT_SID=ACCOUNT_SID` AND `TWILIO_TOKEN=TOKEN` in the `.env` file. Replace `ACCOUNT_SID` AND `TOKEN` with the actual code from your Twilio account.
+
 
 
 
