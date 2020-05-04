@@ -8,8 +8,7 @@ Demo Link: https://www.youtube.com/watch?v=1mnr9eP5Dzs
 
 If you would like to download and run on your local machine, here are a few things to keep in mind:
 
-1. 
-Make sure you have mongoDB and Redis installed in your machine. 
+1. Make sure you have mongoDB and Redis installed in your machine. 
 Download link:
 
 
@@ -19,9 +18,7 @@ Download link:
 [Redis](https://redis.io/)
 
 
-2.
-
-In order for the app to function properly, 
+2. In order for the app to function properly, 
 
 first run `nodemon fetchJobsApp.js` in worker folder.
 
