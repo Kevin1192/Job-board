@@ -1,4 +1,5 @@
-Pulls job posts from major job boards. 
+A web app that pulls job information from Github jobs API and allows users to sign in and subscribe to get daily updates by message.
+
 
 Demo Link: https://www.youtube.com/watch?v=1mnr9eP5Dzs
 
