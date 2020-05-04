@@ -8,12 +8,32 @@ Demo Link: https://www.youtube.com/watch?v=1mnr9eP5Dzs
 
 If you would like to download and run on your local machine, here are a few things to keep in mind:
 
+1. 
 Make sure you have mongoDB and Redis installed in your machine. 
 Download link:
+
+
 [MongoDB](https://www.mongodb.com/)
-Redis(https://redis.io/)
 
 
+[Redis](https://redis.io/)
+
+
+2.
+
+In order for the app to function properly, 
+
+first run `nodemon fetchJobsApp.js` in worker folder.
+
+After the jobs are fetched from Github Jobs API, start back-end server `nodemon app.js` in api folder.
+
+Lastly, run `npm start` in the root foler.
+
+
+3. For the subscription functionality to work, make sure you have a Twilio account:
+[Twilio](https://www.twilio.com/)
+
+After you have their account_sid and token, the easiest way is to create an `.env` file in your root folder and store
 
 
 
