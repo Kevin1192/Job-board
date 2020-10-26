@@ -3,6 +3,7 @@ A web app that pulls job information from Github jobs API and allows users to si
 
 Demo Link: https://www.youtube.com/watch?v=1mnr9eP5Dzs
 
+The demo on my portfolio website no longer works as I have downgraded the cloud host to free tier.
 
 
 ## Download and test Instruction
